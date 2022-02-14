@@ -1,0 +1,52 @@
+{
+  "name": "hicmix:multiMediaReference",
+  "description": "",
+  "dynamic": false,
+  "fields": [
+    {
+      "name": "hic:videoLink",
+      "selectorType": "Choicelist",
+      "valueConstraints": [
+        {
+          "value": {
+            "type": "String",
+            "value": "widen"
+          },
+          "displayValue": "Widen (DAM)",
+          "propertyList": [
+            {
+              "name": "addMixin",
+              "value": "hicmix:damVideoLink"
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "String",
+            "value": "internal"
+          },
+          "displayValue": "jContent",
+          "propertyList": [
+            {
+              "name": "addMixin",
+              "value": "hicmix:internalVideoLink"
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "String",
+            "value": "external"
+          },
+          "displayValue": "URL",
+          "propertyList": [
+            {
+              "name": "addMixin",
+              "value": "hicmix:externalVideoLink"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

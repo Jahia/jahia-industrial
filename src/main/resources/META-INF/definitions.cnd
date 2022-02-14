@@ -1,2 +1,113 @@
 <jnt = 'http://www.jahia.org/jahia/nt/1.0'>
 <jmix = 'http://www.jahia.org/jahia/mix/1.0'>
+<mix = 'http://www.jcp.org/jcr/mix/1.0'>
+<wdenmix = 'http://modules.se.jahia.org/wden/mix/1.0'>
+<hicmix = 'http://www.jahia.org/template/headless/industrial/mix/1.0'>
+<hicnt = 'http://www.jahia.org/template/headless/industrial/nt/1.0'>
+<hic = 'http://www.jahia.org/template/headless/industrial/1.0'>
+
+[hicmix:pageTemplate] mixin
+ extends = jnt:headlessPage
+ - j:templateName (string) mandatory nofulltext
+
+[hicmix:industrial] > jmix:droppableContent, jmix:editorialContent mixin
+
+[hicmix:damVideoLink] > jmix:dynamicFieldset mixin
+ extends = hicmix:multiMediaReference
+ - hic:videoIntPath (weakreference) internationalized < wdenmix:widenAsset
+
+[hicmix:internalVideoLink] > jmix:dynamicFieldset mixin
+ extends = hicmix:multiMediaReference
+ - hic:videoIntPath (weakreference) internationalized < jnt:file
+
+[hicmix:externalVideoLink] > jmix:dynamicFieldset mixin
+ extends = hicmix:multiMediaReference
+ - hic:videoExtPath (string) = 'https://' internationalized
+
+[hicmix:multiMediaReference] > wdenmix:mediaReference mixin
+ - hic:videoLink (string) indexed=no
+
+
+//----------------
+// CONTENT LINKER
+//----------------
+
+[hicmix:linkTo] mixin
+ - linkType (string, choicelist) indexed=no
+ - linkTarget (string, choicelist[resourceBundle]) = _blank autocreated indexed=no < '_blank', '_self', '_parent', '_top'
+
+[hicmix:internalLink] > jmix:dynamicFieldset mixin
+ extends = hicmix:linkTo
+ - internalLink (weakreference, picker[type='editoriallink']) < 'jmix:droppableContent', 'jnt:page', 'jnt:file'
+
+[hicmix:externalLink] > jmix:dynamicFieldset mixin
+ extends = hicmix:linkTo
+ - externalLink (string) = 'https://'
+
+
+//----------------
+// TEXT
+//----------------
+
+[hicnt:text]> jnt:content, hicmix:industrial
+ - text (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/jahia-industrial/javascript/ckeditor/config/default.js']) internationalized
+
+
+//----------------
+// GALLERY IMAGE
+//----------------
+
+[hicnt:galleryImage] > jnt:content, hicmix:industrial, wdenmix:mediaReference, hicmix:linkTo, mix:title
+ - heading (string) internationalized
+ - iconClass (string)
+
+
+//----------------
+// CAROUSEL
+//----------------
+
+[hicnt:owlcarousel] > jnt:content, hicmix:industrial, jmix:list, jmix:siteContent orderable
+ - carouselType (string, choicelist) mandatory indexed=no
+
+[hicmix:owlcarouselHeading] > jmix:dynamicFieldset mixin
+ extends = hicnt:owlcarousel
+ + * (hicnt:owlcarouselHeadingItem)
+
+[hicmix:owlcarouselTestimonial] > jmix:dynamicFieldset mixin
+ extends = hicnt:owlcarousel
+ + * (hicnt:owlcarouselTestimonialItem)
+
+[hicmix:owlcarouselAdvancedSettings] mixin
+ extends = hicnt:owlcarousel
+ itemtype = content
+ - options (string) indexed=no
+ - class (string) indexed=no
+
+[hicnt:owlcarouselHeadingItem] > jnt:content, hicmix:multiMediaReference, mix:title
+ - caption (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/jahia-industrial/javascript/ckeditor/config/default.js']) internationalized
+
+[hicnt:owlcarouselTestimonialItem] > jnt:content, wdenmix:mediaReference, mix:title
+ - heading (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/jahia-industrial/javascript/ckeditor/config/small.js']) internationalized
+ - testimonial (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/jahia-industrial/javascript/ckeditor/config/default.js']) internationalized
+
+
+//----------------
+// CONTENT
+//----------------
+
+[hicnt:image] > jnt:content, wdenmix:mediaReference
+
+[hicmix:content] > wdenmix:mediaReference mixin
+ - body (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/jahia-industrial/javascript/ckeditor/config/small.js']) internationalized
+
+[hicnt:heading] > jnt:content, hicmix:content, hicmix:industrial
+
+[hicnt:halfBlock] > jnt:content, hicmix:industrial
+ - imagePosition (string, choicelist[resourceBundle]) = 'left' autocreated indexed=no < 'left', 'right'
+ + image (hicnt:image)
+ + body (hicnt:text)
+
+[hicnt:card] > jnt:content, hicmix:content, hicmix:industrial, hicmix:linkTo
+
+
+

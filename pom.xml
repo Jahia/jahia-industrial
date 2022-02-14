@@ -62,10 +62,13 @@
     <description>This is the custom module (Jahia Industrial Content) for running on a Jahia server.</description>
 
     <scm>
-        <connection>scm:dummy:uri</connection>
-        <developerConnection>scm:dummy:uri</developerConnection>
+        <connection>scm:git:git@github.com:Jahia/jahia-industrial.git</connection>
+        <developerConnection>scm:git:git@github.com:Jahia/jahia-industrial.git</developerConnection>
+        <url>https://github.com/Jahia/jahia-industrial</url>
     </scm>
-
+    <properties>
+        <jahia-depends>default,codemirror-editor,widen-picker</jahia-depends>
+    </properties>
     <repositories>
         <repository>
             <id>jahia-public</id>
@@ -89,7 +92,7 @@
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
-                        <Jahia-Depends>default</Jahia-Depends>
+                        <Jahia-Static-Resources>/javascript</Jahia-Static-Resources>
                     </instructions>
                 </configuration>
             </plugin>

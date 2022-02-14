@@ -1,0 +1,9 @@
+{
+  "name": "hicmix:damVideoLink",
+  "fields": [
+    {
+      "name": "hic:videoIntPath",
+      "selectorType": "WidenPicker"
+    }
+  ]
+}

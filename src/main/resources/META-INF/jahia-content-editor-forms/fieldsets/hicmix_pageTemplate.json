@@ -1,0 +1,35 @@
+{
+  "name": "hicmix:pageTemplate",
+  "displayName": "Page Template",
+  "description": "",
+  "dynamic": false,
+  "fields": [
+    {
+      "name": "j:templateName",
+      "displayName": "Template",
+      "valueConstraints": [
+        {
+          "value": {
+            "type": "String",
+            "value": "home"
+          },
+          "displayValue": "Home"
+        },
+        {
+          "value": {
+            "type": "String",
+            "value": "about"
+          },
+          "displayValue": "About"
+        },
+        {
+          "value": {
+            "type": "String",
+            "value": "2cols"
+          },
+          "displayValue": "2 Columns"
+        }
+      ]
+    }
+  ]
+}
