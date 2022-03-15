@@ -1,5 +1,5 @@
 {
-  "name": "tint:owlcarousel",
+  "name": "hicnt:owlcarousel",
   "displayName": "Owl Carousel",
   "description": "",
   "dynamic": false,
@@ -11,7 +11,7 @@
         {
           "value": {
             "type": "String",
-            "value": "standardWiden"
+            "value": "heading"
           },
           "displayValue": "Heading",
           "propertyList": [
@@ -24,7 +24,7 @@
         {
           "value": {
             "type": "String",
-            "value": "testimonialWiden"
+            "value": "testimonial"
           },
           "displayValue": "Testimonial",
           "propertyList": [

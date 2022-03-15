@@ -1,12 +1,13 @@
 {
   "name": "hicmix:pageTemplate",
-  "displayName": "Page Template",
+  "displayName": "Headless Template",
   "description": "",
   "dynamic": false,
   "fields": [
     {
-      "name": "j:templateName",
+      "name": "j:templateNameHeadless",
       "displayName": "Template",
+      "selectorType": "Choicelist",
       "valueConstraints": [
         {
           "value": {
