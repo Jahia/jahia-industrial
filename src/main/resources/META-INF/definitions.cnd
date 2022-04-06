@@ -6,9 +6,9 @@
 <hicnt = 'http://www.jahia.org/template/headless/industrial/nt/1.0'>
 <hic = 'http://www.jahia.org/template/headless/industrial/1.0'>
 
-[hicmix:pageTemplate] mixin
- extends = jnt:page
- - j:templateNameHeadless (string) nofulltext
+//[hicmix:pageTemplate] mixin
+// extends = jnt:page
+// - j:templateNameHeadless (string) nofulltext
 
 [hicmix:industrial] > jmix:droppableContent, jmix:editorialContent mixin
 
