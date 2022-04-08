@@ -17,11 +17,21 @@ jobs:
     name: Build Module
     runs-on: ubuntu-latest
     steps:
+      - name: Cache local Maven repository
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2/repository
+          # Cache depending on has made on pom.xml content
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-maven-
       - uses: actions/checkout@v2
       - name: Build and Unit tests
         run: mvn clean install
       - name : Deploy
-        run: curl -u root:${{ secrets.SUPER_USER_PASSWORD }} -X POST ${{ secrets.JAHIA_URL }}/modules/api/provisioning --form script='[{"installAndStartBundle":"'"$file"'"}]' --form file=@target/jahia-industrial-1.0.0-SNAPSHOT.jar
+        env:
+          SUPER_USER_PASSWORD: ${{ secrets.SUPER_USER_PASSWORD }}
+          JAHIA_URL: ${{ secrets.JAHIA_URL }}
+        run: curl -u root:${SUPER_USER_PASSWORD} -X POST ${JAHIA_URL}/modules/api/provisioning --form script='[{"installAndStartBundle":"'"$file"'"}]' --form file=@target/jahia-industrial-1.0.0-SNAPSHOT.jar
       - name: Setup tmate session
         uses: mxschmitt/action-tmate@v3
         timeout-minutes: 15
