@@ -1,0 +1,27 @@
+# This workflow is triggered every time a change is pushed to any branches
+# Github actions command reference: https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions
+name: On merge to master
+
+# The workflow could also be triggered on PRs
+on:
+  push:
+    branches:
+      - 'master'
+      - 'ci-cd-test'
+    tags-ignore:
+      - '**'
+
+jobs:
+
+  build:
+    name: Build Module
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build and Unit tests
+        run: mvn clean install
+      - name : Deploy
+        run: curl -u root:${{ secrets.SUPER_USER_PASSWORD }} -X POST ${{ secrets.JAHIA_URL }}/modules/api/provisioning --form script='[{"installAndStartBundle":"'"$file"'"}]' --form file=@target/jahia-industrial-1.0.0-SNAPSHOT.jar
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+        timeout-minutes: 15
