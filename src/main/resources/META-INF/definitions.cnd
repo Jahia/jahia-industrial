@@ -6,10 +6,6 @@
 <hicnt = 'http://www.jahia.org/template/headless/industrial/nt/1.0'>
 <hic = 'http://www.jahia.org/template/headless/industrial/1.0'>
 
-//[hicmix:pageTemplate] mixin
-// extends = jnt:page
-// - j:templateNameHeadless (string) nofulltext
-
 [hicmix:industrial] > jmix:droppableContent, jmix:editorialContent mixin
 
 [hicmix:damVideoLink] > jmix:dynamicFieldset mixin
@@ -52,6 +48,11 @@
 [hicnt:text]> jnt:content, hicmix:industrial
  - text (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/jahia-industrial/javascript/ckeditor/config/default.js']) internationalized
 
+[hicnt:featureContentBloc]> jnt:content, hicmix:industrial
+ - title (string) internationalized
+ - teaser (string) internationalized
+ - iconName (string)
+
 
 //----------------
 // GALLERY IMAGE
@@ -59,7 +60,7 @@
 
 [hicnt:galleryImage] > jnt:content, hicmix:industrial, wdenmix:mediaReference, hicmix:linkTo, mix:title
  - heading (string) internationalized
- - iconClass (string)
+// - iconClass (string)
 
 
 //----------------
@@ -100,23 +101,22 @@
 [hicmix:content] > wdenmix:mediaReference mixin
  - body (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/jahia-industrial/javascript/ckeditor/config/small.js']) internationalized
 
-[hicmix:contentBloc] mixin
+[hicnt:heading] > jnt:content, hicmix:content, hicmix:industrial
+
+[hicnt:halfBlock] > jnt:content, hicmix:industrial
  - imagePosition (string, choicelist[resourceBundle]) = 'left' autocreated indexed=no < 'left', 'right'
- - view (string, choicelist[resourceBundle]) = 'default' autocreated indexed=no < 'default', 'halfBlock'
  + image (hicnt:image)
  + body (hicnt:text)
 
+[hicnt:card] > jnt:content, hicmix:content, hicmix:industrial, hicmix:linkTo
 
-[hicnt:heading] > jnt:content, hicmix:content, hicmix:industrial
-
-//[hicnt:halfBlock] > jnt:content, hicmix:industrial, hicmix:contentBloc
-[hicnt:article] > jnt:content, hicmix:industrial, hicmix:contentBloc
-
+//[hicmix:contentBloc] mixin
 // - imagePosition (string, choicelist[resourceBundle]) = 'left' autocreated indexed=no < 'left', 'right'
+// - view (string, choicelist[resourceBundle]) = 'default' autocreated indexed=no < 'default', 'halfBlock'
 // + image (hicnt:image)
 // + body (hicnt:text)
-
-[hicnt:card] > jnt:content, hicmix:content, hicmix:industrial, hicmix:linkTo
+//[hicnt:halfBlock] > jnt:content, hicmix:industrial, hicmix:contentBloc
+//[hicnt:article] > jnt:content, hicmix:industrial, hicmix:contentBloc
 
 
 

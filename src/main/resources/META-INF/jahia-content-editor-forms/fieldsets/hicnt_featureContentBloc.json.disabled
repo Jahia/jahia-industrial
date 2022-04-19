@@ -1,0 +1,23 @@
+{
+  "name": "hicnt:featureContentBloc",
+  "displayName": "Feature Content Bloc",
+  "description": "",
+  "dynamic": false,
+  "fields": [
+    {
+      "name": "iconName",
+      "displayName": "",
+      "selectorType": "Choicelist",
+      "valueConstraints": [
+        {
+          "value": {"type": "String","value": "HeartFill"},
+          "displayValue": "Heart"
+        },
+        {
+          "value": {"type": "String","value": "PlusLg"},
+          "displayValue": "Plus"
+        }
+      ]
+    }
+  ]
+}
