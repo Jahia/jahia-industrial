@@ -107,7 +107,8 @@
  + image (hicnt:image)
  + body (hicnt:text)
 
-[hicnt:card] > jnt:content, hicmix:content, hicmix:industrial, hicmix:linkTo
+//Not Yet implemented
+//[hicnt:card] > jnt:content, hicmix:content, hicmix:industrial, hicmix:linkTo
 
 //[hicmix:contentBloc] mixin
 // - imagePosition (string, choicelist[resourceBundle]) = 'left' autocreated indexed=no < 'left', 'right'
