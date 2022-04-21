@@ -1,28 +1,23 @@
 <jnt = 'http://www.jahia.org/jahia/nt/1.0'>
 <jmix = 'http://www.jahia.org/jahia/mix/1.0'>
 <mix = 'http://www.jcp.org/jcr/mix/1.0'>
-<wdenmix = 'http://modules.se.jahia.org/wden/mix/1.0'>
 <hicmix = 'http://www.jahia.org/template/headless/industrial/mix/1.0'>
 <hicnt = 'http://www.jahia.org/template/headless/industrial/nt/1.0'>
 <hic = 'http://www.jahia.org/template/headless/industrial/1.0'>
 
 [hicmix:industrial] > jmix:droppableContent, jmix:editorialContent mixin
 
-[hicmix:damVideoLink] > jmix:dynamicFieldset mixin
- extends = hicmix:multiMediaReference
- - hic:videoIntPath (weakreference) internationalized < wdenmix:widenAsset
-
 [hicmix:internalVideoLink] > jmix:dynamicFieldset mixin
  extends = hicmix:multiMediaReference
- - hic:videoIntPath (weakreference) internationalized < jnt:file
+ - videoIntPath (weakreference) internationalized < jnt:file
 
 [hicmix:externalVideoLink] > jmix:dynamicFieldset mixin
  extends = hicmix:multiMediaReference
- - hic:videoExtPath (string) = 'https://' internationalized
+ - videoExtPath (string) = 'https://' internationalized
 
-[hicmix:multiMediaReference] > wdenmix:mediaReference mixin
- - hic:videoLink (string) indexed=no
-
+[hicmix:multiMediaReference] mixin
+ - mediaNode (weakreference, picker[type='image']) mandatory internationalized < 'jmix:image'
+ - videoLink (string) indexed=no
 
 //----------------
 // CONTENT LINKER
@@ -58,8 +53,9 @@
 // GALLERY IMAGE
 //----------------
 
-[hicnt:galleryImage] > jnt:content, hicmix:industrial, wdenmix:mediaReference, hicmix:linkTo, mix:title
+[hicnt:galleryImage] > jnt:content, hicmix:industrial, hicmix:linkTo, mix:title
  - heading (string) internationalized
+ - mediaNode (weakreference, picker[type='image']) mandatory internationalized < 'jmix:image'
 // - iconClass (string)
 
 
@@ -87,19 +83,22 @@
 [hicnt:owlcarouselHeadingItem] > jnt:content, hicmix:multiMediaReference, mix:title
  - caption (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/jahia-industrial/javascript/ckeditor/config/default.js']) internationalized
 
-[hicnt:owlcarouselTestimonialItem] > jnt:content, wdenmix:mediaReference, mix:title
+[hicnt:owlcarouselTestimonialItem] > jnt:content, mix:title
  - heading (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/jahia-industrial/javascript/ckeditor/config/small.js']) internationalized
  - testimonial (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/jahia-industrial/javascript/ckeditor/config/default.js']) internationalized
+ - mediaNode (weakreference, picker[type='image']) mandatory internationalized < 'jmix:image'
 
 
 //----------------
 // CONTENT
 //----------------
 
-[hicnt:image] > jnt:content, wdenmix:mediaReference
+[hicnt:image] > jnt:content
+ - mediaNode (weakreference, picker[type='image']) mandatory internationalized < 'jmix:image'
 
-[hicmix:content] > wdenmix:mediaReference mixin
+[hicmix:content] mixin
  - body (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/jahia-industrial/javascript/ckeditor/config/small.js']) internationalized
+ - mediaNode (weakreference, picker[type='image']) mandatory internationalized < 'jmix:image'
 
 [hicnt:heading] > jnt:content, hicmix:content, hicmix:industrial
 

@@ -10,19 +10,6 @@
         {
           "value": {
             "type": "String",
-            "value": "widen"
-          },
-          "displayValue": "Widen (DAM)",
-          "propertyList": [
-            {
-              "name": "addMixin",
-              "value": "hicmix:damVideoLink"
-            }
-          ]
-        },
-        {
-          "value": {
-            "type": "String",
             "value": "internal"
           },
           "displayValue": "jContent",
