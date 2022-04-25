@@ -4,7 +4,7 @@
   "dynamic": false,
   "fields": [
     {
-      "name": "hic:videoLink",
+      "name": "videoLink",
       "selectorType": "Choicelist",
       "valueConstraints": [
         {

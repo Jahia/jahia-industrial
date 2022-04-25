@@ -2,7 +2,7 @@
   "name": "hicmix:internalVideoLink",
   "fields": [
     {
-      "name": "hic:videoIntPath",
+      "name": "videoIntPath",
       "selectorType": "Picker",
       "selectorOptions": [
         {

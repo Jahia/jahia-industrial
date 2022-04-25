@@ -63,31 +63,30 @@
 // CAROUSEL
 //----------------
 
-//Not Yet implemented
-//[hicnt:owlcarousel] > jnt:content, hicmix:industrial, jmix:list, jmix:siteContent orderable
-// - carouselType (string, choicelist) mandatory indexed=no
+[hicnt:owlcarousel] > jnt:content, hicmix:industrial, jmix:list, jmix:siteContent orderable
+ - carouselType (string, choicelist) mandatory indexed=no
 
-//[hicmix:owlcarouselHeading] > jmix:dynamicFieldset mixin
-// extends = hicnt:owlcarousel
-// + * (hicnt:owlcarouselHeadingItem)
+[hicmix:owlcarouselHeading] > jmix:dynamicFieldset mixin
+ extends = hicnt:owlcarousel
+ + * (hicnt:owlcarouselHeadingItem)
 
-//[hicmix:owlcarouselTestimonial] > jmix:dynamicFieldset mixin
-// extends = hicnt:owlcarousel
-// + * (hicnt:owlcarouselTestimonialItem)
+[hicmix:owlcarouselTestimonial] > jmix:dynamicFieldset mixin
+ extends = hicnt:owlcarousel
+ + * (hicnt:owlcarouselTestimonialItem)
 
-//[hicmix:owlcarouselAdvancedSettings] mixin
-// extends = hicnt:owlcarousel
-// itemtype = content
-// - options (string) indexed=no
-// - class (string) indexed=no
+[hicmix:owlcarouselAdvancedSettings] mixin
+ extends = hicnt:owlcarousel
+ itemtype = content
+ - options (string) indexed=no
+ - class (string) indexed=no
 
-//[hicnt:owlcarouselHeadingItem] > jnt:content, hicmix:multiMediaReference, mix:title
-// - caption (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/jahia-industrial/javascript/ckeditor/config/default.js']) internationalized
+[hicnt:owlcarouselHeadingItem] > jnt:content, hicmix:multiMediaReference, mix:title
+ - caption (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/jahia-industrial/javascript/ckeditor/config/default.js']) internationalized
 
-//[hicnt:owlcarouselTestimonialItem] > jnt:content, mix:title
-// - heading (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/jahia-industrial/javascript/ckeditor/config/small.js']) internationalized
-// - testimonial (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/jahia-industrial/javascript/ckeditor/config/default.js']) internationalized
-// - mediaNode (weakreference, picker[type='image']) mandatory internationalized < 'jmix:image'
+[hicnt:owlcarouselTestimonialItem] > jnt:content, mix:title
+ - heading (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/jahia-industrial/javascript/ckeditor/config/small.js']) internationalized
+ - testimonial (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/jahia-industrial/javascript/ckeditor/config/default.js']) internationalized
+ - mediaNode (weakreference, picker[type='image']) mandatory internationalized < 'jmix:image'
 
 
 //----------------
