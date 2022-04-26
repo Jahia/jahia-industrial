@@ -43,10 +43,15 @@
 [hicnt:text]> jnt:content, hicmix:industrial
  - text (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/jahia-industrial/javascript/ckeditor/config/default.js']) internationalized
 
-[hicnt:featureContentBloc]> jnt:content, hicmix:industrial
- - title (string) internationalized
- - teaser (string) internationalized
- - iconName (string)
+[hicmix:simpleContentBloc] mixin
+  - title (string) internationalized
+  - teaser (string) internationalized
+  - iconName (string)
+
+
+[hicnt:featureContentBloc]> jnt:content, hicmix:simpleContentBloc, hicmix:industrial
+
+[hicnt:mediaContentBloc]> jnt:content, hicmix:simpleContentBloc, hicmix:industrial
 
 
 //----------------
