@@ -115,5 +115,11 @@
 
 [hicnt:card] > jnt:content, hicmix:content, hicmix:industrial, hicmix:linkTo
 
-
+//content definition used for the sample component creation
+[hicnt:blog] > jnt:content, hicmix:industrial, hicmix:linkTo
+  - title (string) internationalized
+  - teaser (string) internationalized
+  - releaseDate (date)
+  - body (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/jahia-industrial/javascript/ckeditor/config/small.js']) internationalized
+  - image (weakreference, picker[type='image']) internationalized < 'jmix:image'
 
