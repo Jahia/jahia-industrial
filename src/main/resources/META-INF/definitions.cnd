@@ -112,16 +112,8 @@
  + image (hicnt:image)
  + body (hicnt:text)
 
-//Not Yet implemented
-[hicnt:card] > jnt:content, hicmix:content, hicmix:industrial, hicmix:linkTo
 
-//[hicmix:contentBloc] mixin
-// - imagePosition (string, choicelist[resourceBundle]) = 'left' autocreated indexed=no < 'left', 'right'
-// - view (string, choicelist[resourceBundle]) = 'default' autocreated indexed=no < 'default', 'halfBlock'
-// + image (hicnt:image)
-// + body (hicnt:text)
-//[hicnt:halfBlock] > jnt:content, hicmix:industrial, hicmix:contentBloc
-//[hicnt:article] > jnt:content, hicmix:industrial, hicmix:contentBloc
+[hicnt:card] > jnt:content, hicmix:content, hicmix:industrial, hicmix:linkTo
 
 
 
