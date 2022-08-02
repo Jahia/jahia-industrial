@@ -93,7 +93,6 @@
  - testimonial (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/jahia-industrial/javascript/ckeditor/config/default.js']) internationalized
  - mediaNode (weakreference, picker[type='image']) mandatory internationalized < 'jmix:image'
 
-
 //----------------
 // CONTENT
 //----------------
@@ -105,7 +104,10 @@
  - body (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/jahia-industrial/javascript/ckeditor/config/small.js']) internationalized
  - mediaNode (weakreference, picker[type='image']) mandatory internationalized < 'jmix:image'
 
-[hicnt:heading] > jnt:content, hicmix:content, hicmix:industrial
+[hicnt:heading] > jnt:content, hicmix:industrial
+ - body (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/jahia-industrial/javascript/ckeditor/config/small.js']) internationalized
+ - mediaNode (weakreference, picker[type='image']) mandatory internationalized < 'jmix:image'
+ - mediaNodeFocus (weakreference, picker[type='image']) internationalized < 'jmix:image'
 
 [hicnt:halfBlock] > jnt:content, hicmix:industrial
  - imagePosition (string, choicelist[resourceBundle]) = 'left' autocreated indexed=no < 'left', 'right'
