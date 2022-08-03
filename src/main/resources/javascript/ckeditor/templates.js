@@ -1,7 +1,7 @@
 CKEDITOR.addTemplates('industrial',
     {
         // The name of the subfolder that contains the preview images of the templates.
-        imagesPath:((typeof contextJsParameters != 'undefined') ? contextJsParameters.contextPath : '') + '/modules/industrial/images/ckeditor/',
+        imagesPath:((typeof contextJsParameters != 'undefined') ? contextJsParameters.contextPath : '') + '/modules/jahia-industrial/images/ckeditor/',
         // Template definitions.
         templates:[
             {

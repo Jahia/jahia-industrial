@@ -104,10 +104,19 @@
  - body (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/jahia-industrial/javascript/ckeditor/config/small.js']) internationalized
  - mediaNode (weakreference, picker[type='image']) mandatory internationalized < 'jmix:image'
 
-[hicnt:heading] > jnt:content, hicmix:industrial
+[hicmix:extraContent] mixin
+ - mediaNodeFocus (weakreference, picker[type='image']) internationalized < 'jmix:image'
+ - mediaGallery (weakreference, picker[type='image']) internationalized multiple < 'jmix:image'
+
+[hicnt:card] > jnt:content, hicmix:content, hicmix:industrial, hicmix:linkTo
+
+[hicnt:heading] > jnt:content, hicmix:industrial, hicmix:linkTo
  - body (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/jahia-industrial/javascript/ckeditor/config/small.js']) internationalized
  - mediaNode (weakreference, picker[type='image']) mandatory internationalized < 'jmix:image'
  - mediaNodeFocus (weakreference, picker[type='image']) internationalized < 'jmix:image'
+
+[hicnt:genericContent] > jnt:content, hicmix:content, hicmix:extraContent, hicmix:industrial, mix:title
+ - teaser (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/jahia-industrial/javascript/ckeditor/config/small.js']) internationalized
 
 [hicnt:halfBlock] > jnt:content, hicmix:industrial
  - imagePosition (string, choicelist[resourceBundle]) = 'left' autocreated indexed=no < 'left', 'right'
@@ -115,7 +124,9 @@
  + body (hicnt:text)
 
 
-[hicnt:card] > jnt:content, hicmix:content, hicmix:industrial, hicmix:linkTo
+
+
+[hicnt:card]
 
 
 
