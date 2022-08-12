@@ -57,7 +57,7 @@
     <groupId>org.jahia.se.modules</groupId>
     <artifactId>jahia-industrial</artifactId>
     <name>Jahia Industrial Content</name>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.1.0-SNAPSHOT</version>
     <packaging>bundle</packaging>
     <description>This is the custom module (Jahia Industrial Content) for running on a Jahia server.</description>
 
