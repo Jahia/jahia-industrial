@@ -122,11 +122,3 @@
  - imagePosition (string, choicelist[resourceBundle]) = 'left' autocreated indexed=no < 'left', 'right'
  + image (hicnt:image)
  + body (hicnt:text)
-
-
-
-
-[hicnt:card]
-
-
-
